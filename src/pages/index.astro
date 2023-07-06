@@ -1,4 +1,5 @@
 ---
+import { TextInput } from '../components/text-input';
 ---
 
 <html lang="en">
@@ -7,15 +8,15 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>MotionCSS</title>
   </head>
   <body>
     <main class="flex min-h-screen justify-between">
       <div class="relative flex flex-grow flex-col">
+        <div class="absolute left-0">Motion CSS</div>
         <div class="absolute right-0">Star on github</div>
-        <div
-          class="col-span-3 col-start-1 row-span-3 row-start-1 grid flex-grow place-items-center"
-        >
+
+        <div class="grid flex-grow place-items-center">
           <div
             class="round relative grid h-16 w-32 place-items-center overflow-hidden rounded border-2 border-slate-900"
           >
@@ -29,19 +30,35 @@
           </div>
         </div>
 
-        <div
-          class="col-span-3 col-start-1 row-span-1 row-start-4 border-t-2 border-t-slate-900 bg-green-400"
-        >
-          Timeline
+        <div class="border-t-2 border-t-slate-900 bg-green-400">
+          <input type="range" min="0" max="100" />
+          <input type="number" value="3" /> seg
         </div>
       </div>
 
       <div class="flex w-1/4 flex-col border-l border-l-slate-900">
-        <div class="row-span-2 row-start-1 flex-grow"></div>
+        <div class="p-4">
+          <TextInput client:only />
 
-        <div
-          class="row-span-2 row-start-3 flex-grow border-t border-t-slate-900"
-        >
+          <h3>Transform</h3>
+
+          <h4>Scale</h4>
+          <div>
+            <input type="number" min="0" value="0.5" />
+            <input type="range" min="0.5" max="2" value="1" />
+            <input type="number" min="1" value="2" />
+          </div>
+
+          <h3>Rotate</h3>
+          <input type="range" min="0" max="360" />
+
+          <h3>Translate</h3>
+          X <input />
+          Y <input />
+          Z <input />
+        </div>
+
+        <div class="flex-grow border-t border-t-slate-900">
           <pre>
             <code>
               Code
