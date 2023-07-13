@@ -1,5 +1,7 @@
 ---
+import { AnimationCode } from '../components/animation-code';
 import { PropertiesForm } from '../components/properties-form';
+import logo from '../assets/logo.svg';
 ---
 
 <html lang="en">
@@ -13,20 +15,19 @@ import { PropertiesForm } from '../components/properties-form';
   <body>
     <main class="flex min-h-screen justify-between">
       <div class="relative flex flex-grow flex-col">
-        <div class="absolute left-0">Motion CSS</div>
-        <div class="absolute right-0">Star on github</div>
+        <div class="absolute left-0 m-4">
+          <div class="inline">
+            <img src={logo} alt="" width={48} height={48} />
+          </div>
+        </div>
+
+        <!-- <div class="absolute right-0">Star on github</div> -->
 
         <div class="grid flex-grow place-items-center">
           <div
             class="round relative grid h-16 w-32 place-items-center overflow-hidden rounded border-2 border-slate-900"
           >
-            <hr
-              class="absolute bottom-0 left-0 right-0 top-0 h-full w-full rotate-45 border-t border-red-900"
-            />
-
-            <hr
-              class="absolute bottom-0 left-0 w-full -rotate-45 border-t-2 border-slate-900"
-            />
+            Star on GitHub
           </div>
         </div>
 
@@ -38,15 +39,11 @@ import { PropertiesForm } from '../components/properties-form';
 
       <div class="flex w-1/4 flex-col border-l border-l-slate-900">
         <div class="p-4">
-          <PropertiesForm />
+          <PropertiesForm client:only />
         </div>
 
         <div class="flex-grow border-t border-t-slate-900">
-          <pre>
-            <code>
-              
-            </code>
-          </pre>
+          <AnimationCode client:only />
         </div>
       </div>
     </main>

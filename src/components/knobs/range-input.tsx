@@ -6,6 +6,7 @@ export type RangeInputProps = {
   step: number;
   max: number;
   defaultValue: number;
+  onChange: (value: string) => void;
 };
 
 export const RangeInput: Component<RangeInputProps> = (props) => {
@@ -21,6 +22,7 @@ export const RangeInput: Component<RangeInputProps> = (props) => {
             step={props.step}
             max={props.max}
             value={props.defaultValue}
+            onInput={(e) => props.onChange(e.target.value)}
           />
         </div>
       </label>

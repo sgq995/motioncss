@@ -279,10 +279,10 @@ type Step = {
 type AnimationKey = 'from' | 'to' | `${number}%`;
 
 type AnimationProperties<Type> = {
-  [Property in keyof Type as AnimationKey]: Step;
+  [Property in keyof Type as AnimationKey]?: Step;
 };
 
-type Keyframes = AnimationProperties<{
+export type Keyframes = AnimationProperties<{
   readonly [key: string]: Step;
 }>;
 
@@ -311,13 +311,13 @@ export function keyframesToString(keyframes: Keyframes) {
 
     let css = '';
 
-    if (currentKeyFrame.opacity !== undefined) {
+    if (currentKeyFrame?.opacity !== undefined) {
       const opacity = opacityToString(currentKeyFrame.opacity);
       css = `${css}
     ${opacity}`;
     }
 
-    if (currentKeyFrame.transform !== undefined) {
+    if (currentKeyFrame?.transform !== undefined) {
       const transform = transformToString(currentKeyFrame.transform);
       css = `${css}
     ${transform}`;
