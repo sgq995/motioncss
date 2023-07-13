@@ -1,5 +1,5 @@
 ---
-import { TextInput } from '../components/text-input';
+import { PropertiesForm } from '../components/properties-form';
 ---
 
 <html lang="en">
@@ -38,24 +38,7 @@ import { TextInput } from '../components/text-input';
 
       <div class="flex w-1/4 flex-col border-l border-l-slate-900">
         <div class="p-4">
-          <TextInput client:only />
-
-          <h3>Transform</h3>
-
-          <h4>Scale</h4>
-          <div>
-            <input type="number" min="0" value="0.5" />
-            <input type="range" min="0.5" max="2" value="1" />
-            <input type="number" min="1" value="2" />
-          </div>
-
-          <h3>Rotate</h3>
-          <input type="range" min="0" max="360" />
-
-          <h3>Translate</h3>
-          X <input />
-          Y <input />
-          Z <input />
+          <PropertiesForm />
         </div>
 
         <div class="flex-grow border-t border-t-slate-900">
