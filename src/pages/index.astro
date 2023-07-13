@@ -1,5 +1,27 @@
 ---
 import { TextInput } from '../components/text-input';
+import { convertKeyframesToCode } from '../converter';
+
+console.log(
+  convertKeyframesToCode({
+    from: {
+      opacity: 0,
+      transform: {
+        scale: { x: 1, y: 1 },
+        rotate: { x: 0, y: 0 },
+        translate: { x: 0, y: 0 },
+      },
+    },
+    to: {
+      opacity: 0,
+      transform: {
+        scale: { x: 1, y: 1 },
+        rotate: { x: 0, y: 0 },
+        translate: { x: 0, y: 0 },
+      },
+    },
+  })
+);
 ---
 
 <html lang="en">
@@ -61,7 +83,7 @@ import { TextInput } from '../components/text-input';
         <div class="flex-grow border-t border-t-slate-900">
           <pre>
             <code>
-              Code
+              
             </code>
           </pre>
         </div>
