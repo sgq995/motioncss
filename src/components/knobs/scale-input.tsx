@@ -1,11 +1,11 @@
 import type { Component } from 'solid-js';
 import { RangeInput } from './range-input';
 import { keyframes } from '../../state/keyframes';
+import type { ScalingValue } from '../../model/scale';
 
 export const ScaleInput: Component = () => {
   const handleInputChange = (value: string) => {
-    console.log({ value });
-    keyframes.scale(value);
+    keyframes.scale(value as ScalingValue);
   };
 
   return (
@@ -15,7 +15,7 @@ export const ScaleInput: Component = () => {
       step={0.01}
       max={2}
       defaultValue={1}
-      onChange={handleInputChange}
+      onValueChange={handleInputChange}
     />
   );
 };

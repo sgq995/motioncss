@@ -1,6 +1,6 @@
 import { createEffect, createRoot, createSignal } from 'solid-js';
-import { Keyframes, keyframesToString } from '../converter';
 import { keyframes } from './keyframes';
+import { keyframesToString, type Keyframes } from '../model/keyframes';
 
 function createCodeState() {
   const [code, setCode] = createSignal(
