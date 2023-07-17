@@ -2,6 +2,7 @@
 import { AnimationCode } from '../components/animation-code';
 import { PropertiesForm } from '../components/properties-form';
 import logo from '../assets/logo.svg';
+import { Timeline } from '../components/timeline';
 ---
 
 <html lang="en">
@@ -31,10 +32,7 @@ import logo from '../assets/logo.svg';
           </div>
         </div>
 
-        <div class="border-t-2 border-t-slate-900 bg-green-400">
-          <input type="range" min="0" max="100" />
-          <input type="number" value="3" /> seg
-        </div>
+        <Timeline client:only />
       </div>
 
       <div class="flex w-1/4 flex-col border-l border-l-slate-900">
