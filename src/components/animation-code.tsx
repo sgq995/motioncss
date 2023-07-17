@@ -6,7 +6,7 @@ export const AnimationCode: Component = () => {
     <div class=" p-4">
       {/* TODO: Copy Icon */}
       <pre class="overflow-x-auto rounded bg-gray-300 p-2">
-        <code>{code.value()}</code>
+        <code>{code.get()}</code>
       </pre>
     </div>
   );

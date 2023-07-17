@@ -6,7 +6,7 @@ export const Timeline: Component = () => {
   let timelineRangeRef: HTMLInputElement | undefined;
 
   const tooltipLeft = () => {
-    const key = animationKey.value();
+    const key = animationKey.get();
 
     timelineRangeRef?.focus();
 
@@ -44,7 +44,7 @@ export const Timeline: Component = () => {
             left: tooltipLeft(),
           }}
         >
-          {animationKey.value()}
+          {animationKey.get()}
         </span>
         <span class="hidden">Timeline</span>
         <input

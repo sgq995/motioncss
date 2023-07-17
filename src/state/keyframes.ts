@@ -38,7 +38,7 @@ function createKeyframesState() {
   /** Transform */
   const scale = (scaling: Scale) =>
     setKeyframes((keyframes) => {
-      const step = getStep(keyframes, animationKey.value());
+      const step = getStep(keyframes, animationKey.get());
       const transform = getStepTransform(step);
       transform.scale = scaling;
 
@@ -47,7 +47,7 @@ function createKeyframesState() {
 
   const rotate = (rotation: Rotate) =>
     setKeyframes((keyframes) => {
-      const step = getStep(keyframes, animationKey.value());
+      const step = getStep(keyframes, animationKey.get());
       const transform = getStepTransform(step);
       transform.rotate = rotation;
 
@@ -56,7 +56,7 @@ function createKeyframesState() {
 
   const translate = (translation: Translate) =>
     setKeyframes((keyframes) => {
-      const step = getStep(keyframes, animationKey.value());
+      const step = getStep(keyframes, animationKey.get());
       const transform = getStepTransform(step);
       transform.translate = { ...transform.translate, ...translation };
 
@@ -66,14 +66,14 @@ function createKeyframesState() {
   /** Opacity */
   const opacity = (opacity: Opacity) =>
     setKeyframes((keyframes) => {
-      const step = getStep(keyframes, animationKey.value());
+      const step = getStep(keyframes, animationKey.get());
 
       step.opacity = opacity;
 
       return keyframes;
     });
 
-  return { value: keyframes, translate, scale, rotate, opacity };
+  return { get: keyframes, translate, scale, rotate, opacity };
 }
 
 export const keyframes = createRoot(createKeyframesState);

@@ -1,13 +1,16 @@
 import { TbPencil } from 'solid-icons/tb';
 import { createSignal, type Component, Show } from 'solid-js';
 
-export const TextInput: Component = () => {
+export type TextInputProps = {
+  onTextChange: (value: string) => void;
+};
+
+export const TextInput: Component<TextInputProps> = (props) => {
   let inputRef: HTMLInputElement;
 
   let [isFocused, setIsFocused] = createSignal(false);
 
   const handleInputFocus = () => {
-    console.log('focus');
     setIsFocused(true);
   };
 
@@ -20,15 +23,11 @@ export const TextInput: Component = () => {
   };
 
   return (
-    <div
-      class="flex w-full justify-between border-b border-b-gray-500"
-      classList={{
-        'border-b-green-400': isFocused(),
-      }}
-    >
+    <div class="flex w-full justify-between border-b border-b-gray-500">
       <input
         ref={inputRef!}
         class="w-full focus:outline-none"
+        onChange={(event) => props.onTextChange(event.target.value)}
         onFocus={handleInputFocus}
         onBlur={handleInputBlur}
       />
