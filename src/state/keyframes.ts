@@ -1,7 +1,33 @@
 import { createRoot, createSignal } from 'solid-js';
-import type { Keyframes } from '../model/keyframes';
-import type { ScalingValue } from '../model/scale';
+import type {
+  AnimationKey,
+  AnimationStep,
+  Keyframes,
+} from '../model/keyframes';
+import type { Scale, ScalingValue } from '../model/scale';
 import { isGeometricOperationPoint2D } from '../model/geometric';
+import type { Opacity } from '../model/opacity';
+import { animationKey } from './animation-key';
+import type { Rotate, RotationValue } from '../model/rotate';
+import type { Translate, TranslationValue } from '../model/translate';
+
+function getStep(keyframes: Keyframes, key: AnimationKey) {
+  let step = keyframes[key];
+  if (step === undefined) {
+    step = {};
+    keyframes[key] = step;
+  }
+  return step;
+}
+
+function getStepTransform(step: AnimationStep) {
+  let transform = step.transform;
+  if (transform === undefined) {
+    transform = {};
+    step.transform = transform;
+  }
+  return transform;
+}
 
 function createKeyframesState() {
   const [keyframes, setKeyframes] = createSignal<Keyframes>(
@@ -10,28 +36,44 @@ function createKeyframesState() {
   );
 
   /** Transform */
-  const scale = (scale: ScalingValue) =>
+  const scale = (scaling: Scale) =>
     setKeyframes((keyframes) => {
-      if (keyframes.from === undefined) {
-        keyframes.from = {};
-      }
-
-      if (keyframes.from.transform === undefined) {
-        keyframes.from.transform = {};
-      }
-
-      if (keyframes.from.transform.scale === undefined) {
-        keyframes.from.transform.scale = { w: 0 };
-      }
-
-      if (isGeometricOperationPoint2D(keyframes.from.transform.scale)) {
-        keyframes.from.transform.scale.w = scale;
-      }
+      const step = getStep(keyframes, animationKey.value());
+      const transform = getStepTransform(step);
+      transform.scale = scaling;
 
       return keyframes;
     });
 
-  return { value: keyframes, scale };
+  const rotate = (rotation: Rotate) =>
+    setKeyframes((keyframes) => {
+      const step = getStep(keyframes, animationKey.value());
+      const transform = getStepTransform(step);
+      transform.rotate = rotation;
+
+      return keyframes;
+    });
+
+  const translate = (translation: Translate) =>
+    setKeyframes((keyframes) => {
+      const step = getStep(keyframes, animationKey.value());
+      const transform = getStepTransform(step);
+      transform.translate = { ...transform.translate, ...translation };
+
+      return keyframes;
+    });
+
+  /** Opacity */
+  const opacity = (opacity: Opacity) =>
+    setKeyframes((keyframes) => {
+      const step = getStep(keyframes, animationKey.value());
+
+      step.opacity = opacity;
+
+      return keyframes;
+    });
+
+  return { value: keyframes, translate, scale, rotate, opacity };
 }
 
 export const keyframes = createRoot(createKeyframesState);

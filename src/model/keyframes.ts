@@ -1,19 +1,19 @@
 import { opacityToString, type Opacity } from './opacity';
 import { transformToString, type Transform } from './transform';
 
-type Step = {
+export type AnimationStep = {
   transform?: Transform;
   opacity?: Opacity;
 };
 
-type AnimationKey = 'from' | 'to' | `${number}%`;
+export type AnimationKey = 'from' | 'to' | `${number}%`;
 
-type AnimationProperties<Type> = {
-  [Property in keyof Type as AnimationKey]?: Step;
+type AnimationTypeConstructor<Type> = {
+  [Property in keyof Type as AnimationKey]?: AnimationStep;
 };
 
-export type Keyframes = AnimationProperties<{
-  readonly [key: string]: Step;
+export type Keyframes = AnimationTypeConstructor<{
+  readonly [key: string]: AnimationStep;
 }>;
 
 export function keyframesToString(keyframes: Keyframes) {

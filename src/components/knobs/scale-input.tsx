@@ -5,7 +5,7 @@ import type { ScalingValue } from '../../model/scale';
 
 export const ScaleInput: Component = () => {
   const handleInputChange = (value: string) => {
-    keyframes.scale(value as ScalingValue);
+    keyframes.scale({ w: value as ScalingValue });
   };
 
   return (
