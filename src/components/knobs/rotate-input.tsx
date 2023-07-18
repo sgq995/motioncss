@@ -10,7 +10,7 @@ export const RotateInput: Component = () => {
   return (
     <RangeInput
       label="Rotate"
-      min={0}
+      min={-360}
       step={15}
       max={360}
       defaultValue={0}
