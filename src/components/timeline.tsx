@@ -1,6 +1,7 @@
 import type { Component } from 'solid-js';
 import { animationKey } from '../state';
 import type { AnimationKey } from '../model/keyframes';
+import { animationDuration } from '../state/animation-duration';
 
 export const Timeline: Component = () => {
   let timelineRangeRef: HTMLInputElement | undefined;
@@ -33,7 +34,9 @@ export const Timeline: Component = () => {
     animationKey.set(key);
   };
 
-  const handleMaximumTimeChange = (value: string) => {};
+  const handleMaximumTimeChange = (value: string) => {
+    animationDuration.set(parseFloat(value));
+  };
 
   return (
     <div class="flex border-t-2 border-t-slate-900 p-8">

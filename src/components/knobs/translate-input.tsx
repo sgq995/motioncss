@@ -1,18 +1,17 @@
 import type { Component } from 'solid-js';
 import { keyframes } from '../../state';
-import type { TranslationValue } from '../../model/translate';
 
 export const TranslateInput: Component = () => {
   const handleCoordinateXChange = (value: string) => {
-    keyframes.translate({ x: value as TranslationValue });
+    keyframes.translate({ x: `${parseFloat(value)}px` });
   };
 
   const handleCoordinateYChange = (value: string) => {
-    keyframes.translate({ y: value as TranslationValue });
+    keyframes.translate({ y: `${parseFloat(value)}px` });
   };
 
   const handleCoordinateZChange = (value: string) => {
-    keyframes.translate({ z: value as TranslationValue });
+    keyframes.translate({ z: `${parseFloat(value)}px` });
   };
 
   return (

@@ -1,11 +1,10 @@
 import type { Component } from 'solid-js';
 import { RangeInput } from './range-input';
 import { keyframes } from '../../state';
-import type { RotationValue } from '../../model/rotate';
 
 export const RotateInput: Component = () => {
   const handleInputChange = (value: string) => {
-    keyframes.rotate({ w: value as RotationValue });
+    keyframes.rotate({ w: `${parseFloat(value)}deg` });
   };
 
   return (

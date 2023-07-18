@@ -3,6 +3,7 @@ import { AnimationCode } from '../components/animation-code';
 import { PropertiesForm } from '../components/properties-form';
 import logo from '../assets/logo.svg';
 import { Timeline } from '../components/timeline';
+import { Preview } from '../components/preview';
 ---
 
 <html lang="en">
@@ -24,13 +25,7 @@ import { Timeline } from '../components/timeline';
 
         <!-- <div class="absolute right-0">Star on github</div> -->
 
-        <div class="grid flex-grow place-items-center">
-          <div
-            class="round relative grid h-16 w-32 place-items-center overflow-hidden rounded border-2 border-slate-900"
-          >
-            Star on GitHub
-          </div>
-        </div>
+        <Preview client:only />
 
         <Timeline client:only />
       </div>
