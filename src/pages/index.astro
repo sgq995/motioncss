@@ -1,9 +1,10 @@
 ---
+import Card from '../components/common/card.astro';
 import { AnimationCode } from '../components/animation-code';
 import { PropertiesForm } from '../components/properties-form';
-import logo from '../assets/logo.svg';
 import { Timeline } from '../components/timeline';
 import { Preview } from '../components/preview';
+import logo from '../assets/logo.svg';
 ---
 
 <html lang="en">
@@ -41,17 +42,21 @@ import { Preview } from '../components/preview';
 
         <Preview client:only />
 
-        <Timeline client:only />
+        <div class="p-8">
+          <Card>
+            <Timeline client:only />
+          </Card>
+        </div>
       </div>
 
-      <div class="flex w-1/4 flex-col border-l border-l-slate-900">
-        <div class="p-4">
+      <div class="flex w-1/4 flex-col gap-4 p-8">
+        <Card>
           <PropertiesForm client:only />
-        </div>
+        </Card>
 
-        <div class="flex-grow border-t border-t-slate-900">
+        <Card>
           <AnimationCode client:only />
-        </div>
+        </Card>
       </div>
     </main>
   </body>

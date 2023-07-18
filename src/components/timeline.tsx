@@ -40,10 +40,10 @@ export const Timeline: Component = () => {
   };
 
   return (
-    <div class="flex items-center justify-between gap-4 border-t-2 border-t-slate-900 p-8">
+    <div class="flex items-center justify-between gap-4">
       <label class="relative flex-grow">
         <span
-          class="absolute -top-5 -translate-x-1/2 select-none"
+          class="absolute -top-10 -translate-x-1/2 select-none rounded border border-gray-300 bg-white px-2 py-1"
           style={{
             left: tooltipLeft(),
           }}

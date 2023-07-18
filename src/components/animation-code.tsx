@@ -3,11 +3,8 @@ import { code } from '../state/code';
 
 export const AnimationCode: Component = () => {
   return (
-    <div class=" p-4">
-      {/* TODO: Copy Icon */}
-      <pre class="overflow-x-auto rounded bg-gray-300 p-2">
-        <code>{code.get()}</code>
-      </pre>
-    </div>
+    <pre class="overflow-x-auto rounded bg-gray-300 p-2">
+      <code>{code.get()}</code>
+    </pre>
   );
 };
