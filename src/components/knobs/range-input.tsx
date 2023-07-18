@@ -11,21 +11,19 @@ export type RangeInputProps = {
 
 export const RangeInput: Component<RangeInputProps> = (props) => {
   return (
-    <div>
-      <label>
-        <div class="flex justify-between">
-          <span>{props.label}</span>
-          <input
-            class="w-3/4"
-            type="range"
-            min={props.min}
-            step={props.step}
-            max={props.max}
-            value={props.defaultValue}
-            onInput={(e) => props.onValueChange(e.target.value)}
-          />
-        </div>
-      </label>
-    </div>
+    <label>
+      <div class="flex justify-between">
+        <span>{props.label}</span>
+        <input
+          class="w-3/4"
+          type="range"
+          min={props.min}
+          step={props.step}
+          max={props.max}
+          value={props.defaultValue}
+          onInput={(e) => props.onValueChange(e.target.value)}
+        />
+      </div>
+    </label>
   );
 };

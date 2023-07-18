@@ -2,6 +2,7 @@ import type { Component } from 'solid-js';
 import { animationKey } from '../state';
 import type { AnimationKey } from '../model/keyframes';
 import { animationDuration } from '../state/animation-duration';
+import { Input } from './common/input';
 
 export const Timeline: Component = () => {
   let timelineRangeRef: HTMLInputElement | undefined;
@@ -39,7 +40,7 @@ export const Timeline: Component = () => {
   };
 
   return (
-    <div class="flex border-t-2 border-t-slate-900 p-8">
+    <div class="flex items-center justify-between gap-4 border-t-2 border-t-slate-900 p-8">
       <label class="relative flex-grow">
         <span
           class="absolute -top-5 -translate-x-1/2 select-none"
@@ -61,13 +62,14 @@ export const Timeline: Component = () => {
         />
       </label>
 
-      <label class="flex-shrink">
-        <input
+      <label class="flex flex-shrink items-center justify-between gap-2">
+        <Input
+          class="w-16 text-right"
           type="number"
           value="3"
           onChange={(event) => handleMaximumTimeChange(event.target.value)}
         />
-        seg
+        <span>seg</span>
       </label>
     </div>
   );

@@ -1,5 +1,6 @@
 import type { Component } from 'solid-js';
 import { keyframes } from '../../state';
+import { Input } from '../common/input';
 
 export const TranslateInput: Component = () => {
   const handleCoordinateXChange = (value: string) => {
@@ -15,13 +16,13 @@ export const TranslateInput: Component = () => {
   };
 
   return (
-    <div class="flex justify-between">
+    <div class="flex items-center justify-between">
       <span>Translate</span>
 
-      <div class="flex w-3/4 justify-between gap-4">
-        <label class="flex">
+      <div class="flex w-3/4 items-center justify-between gap-4">
+        <label class="flex items-center gap-2">
           <span>X</span>
-          <input
+          <Input
             class="w-full"
             type="number"
             value={0}
@@ -29,9 +30,9 @@ export const TranslateInput: Component = () => {
           />
         </label>
 
-        <label class="flex">
+        <label class="flex items-center gap-2">
           <span>Y</span>
-          <input
+          <Input
             class="w-full"
             type="number"
             value={0}
@@ -39,9 +40,9 @@ export const TranslateInput: Component = () => {
           />
         </label>
 
-        <label class="flex">
+        <label class="flex items-center gap-2">
           <span>Z</span>
-          <input
+          <Input
             class="w-full"
             type="number"
             value={0}

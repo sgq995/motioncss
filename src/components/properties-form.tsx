@@ -8,7 +8,7 @@ import { AnimationNameInput } from './knobs/animation-name-input';
 
 export const PropertiesForm: Component = () => {
   return (
-    <form>
+    <form class="flex flex-col gap-4">
       <AnimationNameInput />
 
       <TranslateInput />
