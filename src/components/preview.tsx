@@ -2,6 +2,7 @@ import type { Component } from 'solid-js';
 import { code } from '../state/code';
 import { animationName } from '../state/animation-name';
 import { animationDuration } from '../state/animation-duration';
+import { TbStar } from 'solid-icons/tb';
 
 export const Preview: Component = () => {
   return (
@@ -14,12 +15,14 @@ export const Preview: Component = () => {
   animation-iteration-count: infinite;
 }
 `}</style>
-      <div
-        class="round relative grid h-16 w-32 place-items-center overflow-hidden rounded border-2 border-slate-900"
+      <a
+        href="https://github.com/sgq995/motioncss"
+        class="round relative flex place-items-center gap-2 overflow-hidden rounded border-2 border-slate-900 p-4"
         classList={{ preview: true }}
       >
+        <TbStar />
         Star on GitHub
-      </div>
+      </a>
     </div>
   );
 };
