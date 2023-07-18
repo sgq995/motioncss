@@ -7,5 +7,7 @@ export const AnimationNameInput: Component = () => {
     animationName.set(value);
   };
 
-  return <TextInput onTextChange={handleInputChange} />;
+  return (
+    <TextInput value={animationName.get()} onTextChange={handleInputChange} />
+  );
 };

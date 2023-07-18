@@ -1,8 +1,8 @@
 import { TbPencil } from 'solid-icons/tb';
 import { createSignal, type Component, Show } from 'solid-js';
-import { Input } from '../common/input';
+import { Input, InputProps } from '../common/input';
 
-export type TextInputProps = {
+export type TextInputProps = InputProps & {
   onTextChange: (value: string) => void;
 };
 
@@ -26,6 +26,7 @@ export const TextInput: Component<TextInputProps> = (props) => {
   return (
     <div class="relative flex w-full justify-between">
       <Input
+        {...props}
         ref={inputRef!}
         class="w-full"
         onChange={(event) => props.onTextChange(event.target.value)}
