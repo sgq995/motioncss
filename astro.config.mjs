@@ -7,6 +7,7 @@ import partytown from '@astrojs/partytown';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://motioncss.com',
+  output: 'static',
   integrations: [
     tailwind(),
     solidJs(),
